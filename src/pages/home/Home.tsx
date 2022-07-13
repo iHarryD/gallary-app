@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ImageCard from "../../components/imageCard/ImageCard";
+import { useSearchQuery } from "../../contexts/SearchQueryContext";
 import { ImageCard as IImageCard } from "../../interfaces/ImageCard.interface";
 import { getImages } from "../../services/imageServices";
 import homeStyles from "./Home.module.css";
@@ -16,9 +17,10 @@ export default function Home() {
     currentPage: 1,
     nextPage: null,
   });
+  const { searchQuery } = useSearchQuery();
 
   useEffect(() => {
-    getImages(pages.currentPage, setIsLoading, (result) => {
+    getImages(searchQuery, pages.currentPage, setIsLoading, (result) => {
       setImages(result.data.data.result);
       setPages({
         previousPage:
@@ -27,7 +29,7 @@ export default function Home() {
         nextPage: result.data.data.nextPage,
       });
     });
-  }, [pages.currentPage]);
+  }, [pages.currentPage, searchQuery]);
 
   function handlePagination(toPage: number) {
     setPages((prev) => ({ ...prev, currentPage: toPage }));

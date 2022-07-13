@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import { SearchQueryProvider } from "./contexts/SearchQueryContext";
 import reportWebVitals from "./reportWebVitals";
 import "./style/global.css";
 import "./style/variables.css";
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <SearchQueryProvider>
+        <App />
+      </SearchQueryProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
