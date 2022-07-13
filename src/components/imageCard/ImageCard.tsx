@@ -15,7 +15,7 @@ export default function ImageCard({
       />
       <div className={imageCardStyles["card-text-container"]}>
         <h3>{imageName}</h3>
-        <p>{imageDetails}</p>
+        <p>{imageDetails.description}</p>
       </div>
     </div>
   );

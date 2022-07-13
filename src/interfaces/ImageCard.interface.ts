@@ -1,5 +1,11 @@
+export interface imageDetails {
+  description: string;
+  lastModifiedOn: Date;
+  uploadedOn: Date;
+}
+
 export interface ImageCard {
-  imageDetails: string;
+  imageDetails: imageDetails;
   imageName: string;
   imageURL: string;
 }
