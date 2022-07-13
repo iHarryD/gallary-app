@@ -32,15 +32,15 @@ export default function ImageForm({ image }: { image?: ImageCard }) {
       return;
     if (image) {
       const update: {
+        description?: string;
         imageName?: string;
-        imageDescription?: string;
         imageURL?: string;
       } = {};
       if (imageNameInputRef.current.value.replaceAll(" ", "")) {
         update.imageName = imageNameInputRef.current.value;
       }
       if (imageDescriptionInputRef.current.value.replaceAll(" ", "")) {
-        update.imageDescription = imageDescriptionInputRef.current.value;
+        update.description = imageDescriptionInputRef.current.value;
       }
       if (imageURLInputRef.current.value.replaceAll(" ", "")) {
         update.imageURL = imageURLInputRef.current.value;
