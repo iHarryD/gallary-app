@@ -1,0 +1,23 @@
+.input-label-container {
+  background: #0001;
+  border-radius: 5px;
+  padding: var(--MAX-SPACING);
+  width: 100%;
+}
+
+.input-label-container > label {
+  display: block;
+  font-weight: 600;
+  transform: translateY(-50%);
+}
+
+.input-label-container > input {
+  width: 100%;
+}
+
+.primary-btn {
+  background: var(--ACCENT-CLR);
+  border-radius: 5px;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
