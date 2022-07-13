@@ -2,6 +2,6 @@ import axios from "axios";
 
 export default function baseAxiosInstance() {
   return axios.create({
-    baseURL: "http://127.0.0.1:3001",
+    baseURL: "https://b-gallery-app.vercel.app",
   });
 }
