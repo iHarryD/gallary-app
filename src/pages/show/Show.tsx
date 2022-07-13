@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ImageCard } from "../../interfaces/ImageCard.interface";
-import { getImage } from "../../services/imageServices";
+import { deleteImage, getImage } from "../../services/imageServices";
 import commonStyles from "../../style/Common.module.css";
 import showStyles from "./Show.module.css";
 
@@ -9,12 +9,20 @@ export default function Show() {
   const [image, setImage] = useState<ImageCard | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (id) {
       getImage(id, setIsLoading, (result) => setImage(result.data.data));
     }
   }, [id]);
+
+  function handleDeleteImage(id: string) {
+    deleteImage(id, undefined, (result) => {
+      navigate("/");
+      console.log(result);
+    });
+  }
 
   return isLoading ? (
     <h2>Loading</h2>
@@ -45,8 +53,19 @@ export default function Show() {
           <p>{image.imageDetails.description}</p>
         </div>
         <div className={showStyles["image-action-btn-container"]}>
-          <button className={commonStyles["primary-btn"]}>Edit</button>
-          <button className={commonStyles["primary-btn"]}>Delete</button>
+          <Link to={`/edit/${image._id}`}>
+            <button className={commonStyles["primary-btn"]}>Edit</button>
+          </Link>
+          <button
+            className={commonStyles["primary-btn"]}
+            onClick={() => {
+              if (image) {
+                handleDeleteImage(image._id);
+              }
+            }}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </main>
