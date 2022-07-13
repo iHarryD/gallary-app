@@ -5,3 +5,21 @@
   justify-items: center;
   padding: var(--MAX-SPACING);
 }
+
+.pagination-bar {
+  align-items: center;
+  display: flex;
+  gap: var(--MAX-SPACING);
+  justify-content: center;
+  padding: var(--MAX-SPACING);
+}
+
+.pagination-btn {
+  aspect-ratio: 1;
+  background: var(--ACCENT-CLR);
+  border-radius: 50%;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  width: 1rem;
+}

@@ -4,15 +4,19 @@ import { ImageCard } from "../interfaces/ImageCard.interface";
 import baseAxiosInstance from "./baseAxiosInstance";
 
 export async function getImages(
+  page: number,
   loadingStateSetter?: Dispatch<SetStateAction<boolean>>,
   successCallback?: (
-    result: AxiosResponse<{ message: string; data: ImageCard[] }>
+    result: AxiosResponse<{
+      message: string;
+      data: { result: ImageCard[]; thisPage: number; nextPage: number | null };
+    }>
   ) => void,
   failureCallback?: (err: unknown) => void
 ) {
   if (loadingStateSetter) loadingStateSetter(true);
   try {
-    const result = await baseAxiosInstance().get("");
+    const result = await baseAxiosInstance().get(`/?page=${page}`);
     if (successCallback) successCallback(result);
   } catch (err) {
     if (failureCallback) failureCallback(err);
