@@ -1,0 +1,13 @@
+.navbar {
+  align-items: center;
+  background: var(--ACCENT-CLR);
+  color: #fff;
+  display: flex;
+  height: var(--NAVBAR-HEIGHT);
+  justify-content: space-between;
+  padding: var(--MID-SPACING) var(--MAX-SPACING);
+}
+
+.logo {
+  cursor: default;
+}

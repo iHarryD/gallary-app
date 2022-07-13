@@ -1,6 +1,7 @@
 .image-cards-container {
   display: grid;
-  gap: 1rem;
+  gap: var(--MAX-SPACING);
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
+  padding: var(--MAX-SPACING);
 }
