@@ -5,6 +5,7 @@ export interface imageDetails {
 }
 
 export interface ImageCard {
+  _id: string;
   imageDetails: imageDetails;
   imageName: string;
   imageURL: string;

@@ -17,8 +17,9 @@ export default function Home() {
       {isLoading ? (
         <h3>Loading...</h3>
       ) : (
-        images.map(({ imageDetails, imageName, imageURL }: IImageCard) => (
+        images.map(({ _id, imageDetails, imageName, imageURL }: IImageCard) => (
           <ImageCard
+            _id={_id}
             imageDetails={imageDetails}
             imageName={imageName}
             imageURL={imageURL}
