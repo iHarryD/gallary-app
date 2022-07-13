@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useRef } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { ImageCard } from "../../interfaces/ImageCard.interface";
 import { editImage, postNewImage } from "../../services/imageServices";
 import commonStyles from "../../style/Common.module.css";
@@ -8,6 +8,7 @@ export default function ImageForm({ image }: { image?: ImageCard }) {
   const imageNameInputRef = useRef<HTMLInputElement | null>(null);
   const imageDescriptionInputRef = useRef<HTMLInputElement | null>(null);
   const imageURLInputRef = useRef<HTMLInputElement | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     if (!image) return;
@@ -45,7 +46,7 @@ export default function ImageForm({ image }: { image?: ImageCard }) {
       if (imageURLInputRef.current.value.replaceAll(" ", "")) {
         update.imageURL = imageURLInputRef.current.value;
       }
-      editImage(image._id, update);
+      editImage(image._id, update, setIsLoading);
     } else {
       if (
         !imageNameInputRef.current.value.replaceAll(" ", "") ||
@@ -62,7 +63,7 @@ export default function ImageForm({ image }: { image?: ImageCard }) {
         },
         imageURL: imageURLInputRef.current.value,
       };
-      postNewImage(newImage as ImageCard);
+      postNewImage(newImage as ImageCard, setIsLoading);
     }
   }
 
@@ -88,8 +89,14 @@ export default function ImageForm({ image }: { image?: ImageCard }) {
         />
       </div>
       <div>
-        <button className={commonStyles["primary-btn"]}>
-          {image ? "Edit" : "Post"}
+        <button disabled={isLoading} className={commonStyles["primary-btn"]}>
+          {image
+            ? isLoading
+              ? "Editing..."
+              : "Edit"
+            : isLoading
+            ? "Posting..."
+            : "Post"}
         </button>
       </div>
     </form>

@@ -28,5 +28,6 @@ button {
 }
 
 main {
+  display: grid;
   min-height: calc(100vh - var(--NAVBAR-HEIGHT));
 }

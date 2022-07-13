@@ -4,6 +4,8 @@ import { useSearchQuery } from "../../contexts/SearchQueryContext";
 import { ImageCard as IImageCard } from "../../interfaces/ImageCard.interface";
 import { getImages } from "../../services/imageServices";
 import homeStyles from "./Home.module.css";
+import BounceLoader from "react-spinners/BounceLoader";
+import commonStyles from "../../style/Common.module.css";
 
 export default function Home() {
   const [images, setImages] = useState<IImageCard[]>([]);
@@ -38,7 +40,9 @@ export default function Home() {
   return (
     <main>
       {isLoading ? (
-        <h3>Loading...</h3>
+        <div className={commonStyles["loader-container"]}>
+          <BounceLoader loading={isLoading} color="#008080" />
+        </div>
       ) : (
         <>
           <div className={homeStyles["image-cards-container"]}>
