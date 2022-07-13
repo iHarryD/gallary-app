@@ -1,0 +1,30 @@
+.show-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: var(--MAX-SPACING);
+}
+
+.image-container {
+  max-width: 50rem;
+}
+
+.image-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--MAX-SPACING);
+  justify-content: center;
+  padding: var(--MAX-SPACING);
+}
+
+.image-dates-container {
+  display: flex;
+  font-size: 0.8rem;
+  gap: var(--MID-SPACING);
+  margin-bottom: var(--MIN-SPACING);
+  opacity: 0.7;
+}
+
+.image-action-btn-container {
+  display: flex;
+  justify-content: space-between;
+}

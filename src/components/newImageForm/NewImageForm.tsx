@@ -1,4 +1,5 @@
 import { FormEvent, useRef } from "react";
+import { ImageCard } from "../../interfaces/ImageCard.interface";
 import { postNewImage } from "../../services/imageServices";
 import commonStyles from "../../style/Common.module.css";
 import newImageFormStyles from "./NewImageForm.module.css";
@@ -31,7 +32,7 @@ export default function NewImageForm() {
       },
       imageURL: imageURLInputRef.current.value,
     };
-    postNewImage(newImage);
+    postNewImage(newImage as ImageCard);
   }
 
   return (
