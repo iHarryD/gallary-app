@@ -11,6 +11,12 @@ export default function Header() {
           </Link>
         </div>
         <div>
+          <input
+            className={headerStyles["search-bar"]}
+            placeholder="search by name"
+          />
+        </div>
+        <div>
           <Link to="/new">
             <button>New</button>
           </Link>

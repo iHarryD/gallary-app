@@ -11,3 +11,11 @@
 .logo {
   cursor: default;
 }
+
+.search-bar {
+  background: #fff;
+  border-radius: 5px;
+  color: #000;
+  padding: var(--MID-SPACING);
+  width: 15rem;
+}
