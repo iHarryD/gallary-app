@@ -1,0 +1,33 @@
+.image-card-container {
+  border-radius: 10px;
+  cursor: default;
+  height: 20rem;
+  overflow: hidden;
+  position: relative;
+  width: 25rem;
+}
+
+.image-card-container:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card-image {
+  height: 100%;
+  object-fit: cover;
+  transition: all 350ms;
+}
+
+.card-text-container {
+  background: linear-gradient(359deg, #000 25%, #0000);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 5px;
+  padding: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
